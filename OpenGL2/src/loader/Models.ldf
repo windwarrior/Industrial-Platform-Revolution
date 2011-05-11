@@ -1,12 +1,12 @@
 # commentaar begint met een hekje, die hele regel wordt niet geparsed
 #
-# Objecten beginnen met een naam, dan een model, dan een texturetype (jpg/png) dan een texturenaam, en dan of ze solid zijn
-# Object filenaam.obj texturetype texturenaam.texturetype solid(true false) parted(true false) String_in_levelfiles width height
+# Objecten beginnen met een een model, dan een texturetype (jpg/png) dan een texturenaam, en dan of ze solid zijn
+# filenaam.obj texturetype texturenaam.texturetype solid(true false) parted(true false) String_in_levelfiles width height
 # 
 # Het is aangeraden om de string_in_levelfiles als enkele char te kiezen, dan zijn de andere files duidelijker
-Steen steen.obj jpg steen_texture.jpg false false s
+Olievat SCENERY_OIL_DRUM.obj png SCENERY_OIL_DRUM_TEX.png false false o
 
-# naam: "Steen"
+# naam: Steen
 # objectfile: "steen.obj"
 # texturetype: "jpg"
 # texturefile: "steen_texture.jpg"
@@ -14,7 +14,7 @@ Steen steen.obj jpg steen_texture.jpg false false s
 # Parted true
 # ReferentieString: "s"
 
-Windmolen windmolen.obj jpg windmolen_texture.jpg false true a 2 2
+#windmolen.obj jpg windmolen_texture.jpg false true a 2 2
 
 # naam: "Windmolen"
 # objectfile: "windmolen.obj"

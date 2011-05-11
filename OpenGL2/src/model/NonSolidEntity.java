@@ -8,7 +8,7 @@ public class NonSolidEntity implements Entity{
 	private Texture tex;
 	private Model mod;
 
-	public NonSolidEntity(Model mod, Texture tex){
+	public NonSolidEntity(Model mod, Texture tex, int width, int height){
 		this.mod = mod;
 		this.tex = tex;
 	}

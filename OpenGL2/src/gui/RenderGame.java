@@ -50,10 +50,16 @@ public class RenderGame {
 	
 	public RenderGame(){
 		ObjLoader obj = new ObjLoader();
-		m = obj.loadOBJModel("BG_TILE.obj");
-		m2 = obj.loadOBJModel("FOREGROUND_TILE3.obj");
-		oildrum = obj.loadOBJModel("SCENERY_OIL_DRUM_NORMALS.obj");
-		personfiller = obj.loadOBJModel("Test.obj");
+		try {
+			m = obj.loadOBJModel("BG_TILE.obj");
+			m2 = obj.loadOBJModel("FOREGROUND_TILE3.obj");
+			oildrum = obj.loadOBJModel("SCENERY_OIL_DRUM_NORMALS.obj");
+			personfiller = obj.loadOBJModel("Test.obj");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		createWindow();
 		initOpenGL();
 		old_time = System.currentTimeMillis();
@@ -189,7 +195,17 @@ public class RenderGame {
 			movTotalY = 0.0f;
 			movTotalZ = 0.0f;
 			
-			rotTotalX = 15.0f;
+			rotTotalX = 10.0f;
+			rotTotalY= 0.0f;
+			rotTotalZ = 0.0f;
+		}
+		
+		if(Keyboard.isKeyDown(Keyboard.KEY_2)){
+			movTotalX = 0.0f;
+			movTotalY = 0.0f;
+			movTotalZ = 0.0f;
+			
+			rotTotalX = 20.0f;
 			rotTotalY= 0.0f;
 			rotTotalZ = 0.0f;
 		}

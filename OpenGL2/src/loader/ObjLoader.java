@@ -29,13 +29,15 @@ public class ObjLoader {
 	}
 
 
-	public Model loadOBJModel(String path){
+	public Model loadOBJModel(String path) throws IOException{
 		Model model = null;
 		try {
 			URL url = this.getClass().getResource(path);
-			InputStreamReader ins = new InputStreamReader(url.openStream());
-			inputStream = new BufferedReader(ins);
-			model = makeObject();
+			if(url != null){
+				InputStreamReader ins = new InputStreamReader(url.openStream());
+				inputStream = new BufferedReader(ins);
+				model = makeObject();
+			}
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
