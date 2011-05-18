@@ -108,7 +108,7 @@ public class LevelLoader {
 					if(!isSolid){
 						try {
 							Model mod = objl.loadOBJModel(objectPath);
-							Texture tex = null;//TextureLoader.getTexture(filetype, this.getClass().getResourceAsStream((texturePath)));
+							Texture tex = TextureLoader.getTexture(filetype, this.getClass().getResourceAsStream((texturePath)));
 							Entity entity = new NonSolidEntity(mod,tex,width,height);
 							result.put(shortHand, entity);
 						} catch (IOException e) {
@@ -185,7 +185,20 @@ public class LevelLoader {
 			e.printStackTrace();
 		}
 	}
-
+	
+	private synchronized void handleBackgroundFile(String path){
+		Scanner gs = null;
+		try {
+			url = LevelLoader.class.getResource(path + "Background.ldf");
+			ins = new InputStreamReader(url.openStream());
+			input = new BufferedReader(ins);
+			gs = new Scanner(input);
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		while(gs.hasNextLine())
+	}
 	public static void main(String[] args){
 		new LevelLoader("");
 	}

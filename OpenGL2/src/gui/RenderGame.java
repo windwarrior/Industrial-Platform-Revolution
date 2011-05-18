@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.nio.FloatBuffer;
 import java.util.ArrayList;
 
+import loader.LevelLoader;
 import loader.ObjLoader;
 import model.Model;
 import model.NormalPoint;
@@ -61,6 +62,8 @@ public class RenderGame {
 		}
 		
 		createWindow();
+		LevelLoader l = new LevelLoader("");
+		l.loadLevel("");
 		initOpenGL();
 		old_time = System.currentTimeMillis();
 		gameLoop();
