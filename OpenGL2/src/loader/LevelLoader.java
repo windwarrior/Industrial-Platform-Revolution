@@ -197,7 +197,9 @@ public class LevelLoader {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		while(gs.hasNextLine())
+		while(gs.hasNextLine()) {
+			
+		}
 	}
 	public static void main(String[] args){
 		new LevelLoader("");
