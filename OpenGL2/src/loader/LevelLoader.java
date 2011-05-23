@@ -221,7 +221,7 @@ public class LevelLoader {
 		}
 	}
 	
-	
+
 	public static void main(String[] args){
 		new LevelLoader();
 	}
