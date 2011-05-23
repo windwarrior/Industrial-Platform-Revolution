@@ -67,7 +67,7 @@ public class ObjLoader {
 				String typeString = scan.next();
 				if(typeString.equals("#")){
 					// Commentaar regel, print het commentaar naar de standaard uitvoer
-					System.out.println(line);
+//					System.out.println(line);
 					
 				}
 				else if(typeString.equals("v")){
@@ -140,10 +140,10 @@ public class ObjLoader {
 			
 		}
 		Model mod = new Model(triangles);
-		System.out.println("-> Er zijn " + vertices.size() + "  vertices gemaakt!");
-		System.out.println("-> Er zijn " + triangles.size() + " triangles gemaakt!");
-		System.out.println("-> Er zijn " + texturepoints.size() + " texturepoints gemaakt!");
-		System.out.println("-> Er zijn " + normalPoints.size() + " normalpoints gemaakt!");
+//		System.out.println("-> Er zijn " + vertices.size() + "  vertices gemaakt!");
+//		System.out.println("-> Er zijn " + triangles.size() + " triangles gemaakt!");
+//		System.out.println("-> Er zijn " + texturepoints.size() + " texturepoints gemaakt!");
+//		System.out.println("-> Er zijn " + normalPoints.size() + " normalpoints gemaakt!");
 		return mod;
 	}
 

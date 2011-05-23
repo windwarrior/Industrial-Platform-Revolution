@@ -1,5 +1,4 @@
-# Een file voor standaard level parameters
-Name: "Test Level"
-Description: "Dit is een level wat de datafiles specificeerd"
-Height: 5
-Width: 15
+Name: "Demo Level"
+Description: "Een level om de loader te testen"
+Height: 7
+Width: 20

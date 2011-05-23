@@ -62,7 +62,7 @@ public class RenderGame {
 		}
 		
 		createWindow();
-		LevelLoader l = new LevelLoader("");
+		LevelLoader l = new LevelLoader();
 		l.loadLevel("");
 		initOpenGL();
 		old_time = System.currentTimeMillis();

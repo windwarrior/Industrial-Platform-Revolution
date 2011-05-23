@@ -1,27 +1,8 @@
-# commentaar begint met een hekje, die hele regel wordt niet geparsed
-#
-# Objecten beginnen met een een model, dan een texturetype (jpg/png) dan een texturenaam, en dan of ze solid zijn
-# filenaam.obj texturetype texturenaam.texturetype solid(true false) parted(true false) String_in_levelfiles width height
-# 
-# Het is aangeraden om de string_in_levelfiles als enkele char te kiezen, dan zijn de andere files duidelijker
-Olievat SCENERY_OIL_DRUM.obj png SCENERY_OIL_DRUM_TEX.png false false o
+# Olievat voor op de achtergrond -v-
+SCENERY_OIL_DRUM SCENERY_OIL_DRUM_NORMALS.obj png SCENERY_OIL_DRUM_TEX.png false false v
 
-# naam: Steen
-# objectfile: "steen.obj"
-# texturetype: "jpg"
-# texturefile: "steen_texture.jpg"
-# Solid: false
-# Parted true
-# ReferentieString: "s"
+# Achtergrond Tegel -t-
+BG_TILE BG_TILE.obj png BG_TILE_TEX.png false true t 2 2
 
-#windmolen.obj jpg windmolen_texture.jpg false true a 2 2
-
-# naam: "Windmolen"
-# objectfile: "windmolen.obj"
-# texturetype: "jpg"
-# texturefile: "windmolen_texture.jpg"
-# Solid: false
-# Parted: true
-# ReferentieString: "a"
-# Breedte units: 2.0
-# Hoogte units: 2.0
+# Ondergrond -o-
+FOREGROUND_TILE FOREGROUND_TILE3.obj png FOREGROUND_TILE_TEX2.png false false false o

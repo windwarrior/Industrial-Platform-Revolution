@@ -14,6 +14,7 @@ import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.opengl.TextureLoader;
 
 import model.Entity;
+import model.Level;
 import model.Model;
 import model.NonSolidEntity;
 
@@ -25,32 +26,56 @@ public class LevelLoader {
 	private String levelName;
 	private InputStreamReader ins;
 	private URL url;
-
-	public LevelLoader(String path){
-		loadLevel(path);
+	private Entity[][] background;
+	private Entity[][] foreground;
+	private Entity[][] frontProps;
+	private Entity[][] backProps;
+	
+	public LevelLoader(){
+		
 	}
 
-	public void loadLevel(String path){
+	public Level loadLevel(String path){
 		//Het string path is de locatie van de map met de ldf submappen
 
 		Map<String,Entity> modelMap;
 		
 		handleGeneralFile(path);
 
-		System.out.println("-> Completed loading General.ldf. Task 1/6");
+		System.out.println("->      Completed loading General.ldf.    Task 1/6");
 
 		modelMap = handleModelFile(path);
 		
-		System.out.println("--> Completed loading Models.ldf. Task 2/6");
+		System.out.println("-->     Completed loading Models.ldf.     Task 2/6");
 		
-		handleBackgroundFile(path, modelMap);
+		background = handleLevelPositionFile(path, "Background.ldf", modelMap);
+		
+		System.out.println("--->    Completed loading Background.ldf. Task 3/6");
+		
+		foreground = handleLevelPositionFile(path, "Foreground.ldf", modelMap);
+		
+		System.out.println("---->   Completed loading Foreground.ldf. Task 4/6");
+		
+		backProps = handleLevelPositionFile(path, "BackProps.ldf", modelMap);
+		
+		System.out.println("----->  Completed loading BackProps.ldf.  Task 5/6");
+		
+		frontProps = handleLevelPositionFile(path, "FrontProps.ldf", modelMap);
+		
+		System.out.println("------> Completed loading FrontProps.ldf. Task 6/6");
+		
+		System.out.println("--> Level loading complete <--");
+		
+		Level result = new Level(levelName, levelDescription, background, foreground, backProps, frontProps);
+		
+		return result;
 	}
 
-	private synchronized Entity[][] handleBackgroundFile(String path, Map<String, Entity> modelMap) {
+	private synchronized Entity[][] handleLevelPositionFile(String path, String fileName, Map<String, Entity> modelMap) {
 		Entity[][] result  = new Entity[levelwidth][levelheight];
 		Scanner gs = null;
 		try {
-			url = LevelLoader.class.getResource(path + "Models.ldf");
+			url = LevelLoader.class.getResource(path + fileName);
 			ins = new InputStreamReader(url.openStream());
 			input = new BufferedReader(ins);
 			gs = new Scanner(input);
@@ -69,9 +94,19 @@ public class LevelLoader {
 			}
 			j++;
 		}
+		try {
+			input.close();
+			gs.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 		return result;
 	}
 
+	
 	private synchronized Map<String,Entity> handleModelFile(String path) {
 		Scanner gs = null;
 		Map<String,Entity> result = new HashMap<String,Entity>();
@@ -186,20 +221,8 @@ public class LevelLoader {
 		}
 	}
 	
-	private synchronized void handleBackgroundFile(String path){
-		Scanner gs = null;
-		try {
-			url = LevelLoader.class.getResource(path + "Background.ldf");
-			ins = new InputStreamReader(url.openStream());
-			input = new BufferedReader(ins);
-			gs = new Scanner(input);
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		while(gs.hasNextLine())
-	}
+	
 	public static void main(String[] args){
-		new LevelLoader("");
+		new LevelLoader();
 	}
 }
