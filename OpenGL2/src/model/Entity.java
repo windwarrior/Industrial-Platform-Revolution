@@ -24,4 +24,8 @@ public interface Entity {
 	 */
 	public boolean isSolid();
 	
+	public int getWidth();
+	
+	public int getHeight();
+	
 }
