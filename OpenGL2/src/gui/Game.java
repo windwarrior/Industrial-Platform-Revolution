@@ -11,6 +11,7 @@ public class Game {
 	float playerX;
 	float playerY;
 	float playerSpeed = 1.4f; // A human will walk at 5km per hour, but this game calculates in meters per second
+	
 	/**
 	 * This method is used to update the game by calling methods that calculate the
 	 * further movements of all the characters.
