@@ -24,12 +24,18 @@ import model.Vertex;
 
 public class Renderer {
 	
+	/**
+	 * initialises the renderer. Creates a new window.
+	 */
 	public void init(){
 		createWindow();
 		initOpenGL();
 	}
 
 	
+	/**
+	 * Tells LWJGL to create a display 
+	 */
 	public void createWindow(){
 		try {
 			

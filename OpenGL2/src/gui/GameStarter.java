@@ -14,16 +14,21 @@ import org.lwjgl.opengl.Display;
 public class GameStarter {
 	private Game game;
 	private int clickcount = 0;
-	
-	
-	public GameStarter(){
-		initGame();
-		
-	}
 	private Renderer render;
 	private Level lev;
+	/**
+	 * Makes a new GameStarter object
+	 */
+	public GameStarter(){
+		initGame();		
+	}
+
+
 	
 	
+	/**
+	 * Initialises the game
+	 */
 	public void initGame(){
 		render = new Renderer();
 		render.init();
@@ -32,12 +37,14 @@ public class GameStarter {
 		gameLoop();
 	}
 	
+	/**
+	 * The main loop in the game. Updates the display in each loop.
+	 */
 	public void gameLoop(){
 		while(!Display.isCloseRequested()){
 			try {
 				Thread.sleep(17);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 //			System.out.println("ik leef nog steeds");
