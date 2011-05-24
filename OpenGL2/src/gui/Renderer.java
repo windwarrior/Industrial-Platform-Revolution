@@ -8,13 +8,24 @@ import model.Level;
 
 public class Renderer {
 	
+	/**
+	 * initialises the renderer. Creates a new window.
+	 */
 	public void init(){
 		createWindow();
 	}
+	
+	/**
+	 * ?
+	 * @param lev
+	 */
 	public void renderLevel(Level lev){
 		
 	}
 	
+	/**
+	 * Tells LWJGL to create a display 
+	 */
 	public void createWindow(){
 		try {
 			
