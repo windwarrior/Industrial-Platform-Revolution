@@ -87,11 +87,16 @@ public class LevelLoader {
 		while(gs.hasNextLine()){
 			char[] line = gs.nextLine().toCharArray();
 			
-			for(int i = 1; i<line.length; i++){
-				if(line[i] != '_' && modelMap.containsKey(line[i])){
-					result[i][j] = modelMap.get(line[i]);
+			for(int i = 0; i<line.length; i++){
+				System.out.print(line[i] + " ");
+				String typestring = line[i] + "";
+				if(line[i] != '_' && modelMap.containsKey(typestring)){
+//					System.out.println("Profit!");
+					result[i][j] = modelMap.get(typestring);
+//					System.out.println(result[i][j]);
 				}
 			}
+			System.out.println();
 			j++;
 		}
 		try {
@@ -145,7 +150,9 @@ public class LevelLoader {
 							Model mod = objl.loadOBJModel(objectPath);
 							Texture tex = TextureLoader.getTexture(filetype, this.getClass().getResourceAsStream((texturePath)));
 							Entity entity = new NonSolidEntity(mod,tex,width,height);
+//							System.err.println("WOOT");
 							result.put(shortHand, entity);
+							System.out.println(shortHand + " " + (result.get(shortHand) == entity && entity != null));
 						} catch (IOException e) {
 							System.err.println(e.getMessage());
 						}

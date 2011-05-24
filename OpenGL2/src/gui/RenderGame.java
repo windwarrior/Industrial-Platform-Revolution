@@ -232,6 +232,7 @@ public class RenderGame {
 		
 		glDepthFunc(GL_LEQUAL);
 		GLU.gluPerspective(30.0f,((float)Display.getDisplayMode().getWidth()/(float)Display.getDisplayMode().getHeight()),0.1f,100.0f);
+		
 		glMatrixMode(GL_MODELVIEW); // Select The Modelview Matrix
 		
 		FloatBuffer lightAmbient = BufferUtils.createFloatBuffer(8).put( new float[] {0.7f, 0.7f, 0.7f, 1.0f});

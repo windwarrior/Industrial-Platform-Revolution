@@ -5,6 +5,7 @@ import org.newdawn.slick.opengl.Texture;
 
 
 public interface Entity {
+
 	/**
 	 * Levert het model van deze Entity.
 	 * @return
@@ -21,5 +22,9 @@ public interface Entity {
 	 * @return
 	 */
 	public boolean isSolid();
+	
+	public int getWidth();
+	
+	public int getHeight();
 	
 }
