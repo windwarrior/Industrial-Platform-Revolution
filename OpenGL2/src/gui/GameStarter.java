@@ -14,13 +14,11 @@ import org.lwjgl.opengl.Display;
 public class GameStarter {
 	private Game game;
 	private int clickcount = 0;
-	public static void main(String[] args){
-		new GameStarter();
-	}
+	
 	
 	public GameStarter(){
-
 		initGame();
+		
 	}
 	private Renderer render;
 	
@@ -51,5 +49,9 @@ public class GameStarter {
 			clickcount++;
 			System.out.println("klik " + clickcount);
 		}
+	}
+	
+	public static void main(String[] args){
+		new GameStarter();
 	}
 }

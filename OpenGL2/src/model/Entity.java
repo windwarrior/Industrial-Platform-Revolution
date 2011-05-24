@@ -5,11 +5,13 @@ import org.newdawn.slick.opengl.Texture;
 
 
 public interface Entity {
+	
 	/**
 	 * Levert het model van deze Entity.
 	 * @return
 	 */
 	public Model getModel();
+	
 	/**
 	 * Levert de texture van deze Entity.
 	 * @return
