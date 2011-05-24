@@ -26,6 +26,7 @@ public class Renderer {
 	
 	public void init(){
 		createWindow();
+		initOpenGL();
 	}
 
 	
@@ -75,7 +76,7 @@ public class Renderer {
 		glMatrixMode(GL_MODELVIEW); 
 		glLoadIdentity();
 
-		glTranslatef(0.0f,-1.25f,-13.0f);
+		glTranslatef(((float)-1*(xright-xleft)),-1.25f,-20.0f);
 		
 		
 		
@@ -85,20 +86,21 @@ public class Renderer {
 				Entity ent = background[i][j];
 				
 				if(ent != null){
-					float x = (float)(ent.getWidth()/2.0f);
-					float y = (float)(ent.getHeight()/2.0f);
+					float x = (float)(ent.getWidth());
+					float y = 0;//(float)(ent.getHeight());
 					renderModel(ent, x, y);
 				}else{
 					
 				}
 			}
+			glTranslatef(((float)-1*(xright-xleft)),1.0f,0.0f);
 		}
 	}
 	
 	public void renderModel(Entity ent, float x, float y){
 		Texture tex = ent.getTexture();
 		Model mod = ent.getModel();
-//		glTranslatef(x,y,0.0f);
+		glTranslatef(x,y,0.0f);
 		if(tex != null){
 			tex.bind();
 		}
