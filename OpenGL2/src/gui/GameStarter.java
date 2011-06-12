@@ -48,7 +48,7 @@ public class GameStarter {
 				e.printStackTrace();
 			}
 //			System.out.println("ik leef nog steeds");
-			render.renderLevel(lev, 0, 10, 0, 5);
+			render.renderLevel(lev, 0, 14, 0, 7);
 			getKeys();
 			Display.update();
 		}
