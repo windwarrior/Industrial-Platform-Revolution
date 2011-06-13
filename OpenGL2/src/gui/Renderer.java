@@ -82,7 +82,7 @@ public class Renderer {
 		glMatrixMode(GL_MODELVIEW); 
 		glLoadIdentity();
 
-		glTranslatef(((float) -1*((xright-xleft)/2.0f)),(float) (ytop-ybottom)/2.0f,-20.0f);
+		glTranslatef(((float) -1*((xright-xleft)/2.0f)),3.5f,-20.0f);
 
 
 //		glRotatef(90.0f,0.0f,1.0f,0.0f);
@@ -135,7 +135,7 @@ public class Renderer {
 			glTranslatef(((float)-1*((xright-xleft))), -1.0f, 0.0f);
 		}
 		
-		glTranslatef(0.0f, (float)ytop-ybottom, 0.0f);
+		glTranslatef(0.0f, (float)ytop-(float)ybottom, 0.0f);
 	}
 
 	public void renderModel(Entity ent, float x, float y){
