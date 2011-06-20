@@ -82,7 +82,7 @@ public class Renderer {
 		glMatrixMode(GL_MODELVIEW); 
 		glLoadIdentity();
 
-		glTranslatef(((float) -1*((xright-xleft)/2.0f)),3.5f,-20.0f);
+		glTranslatef(((float) -1*((xright-xleft)/2.0f)),((float)(ytop-ybottom))/2.0f,-20.0f);
 
 
 //		glRotatef(90.0f,0.0f,1.0f,0.0f);
@@ -106,36 +106,30 @@ public class Renderer {
 	
 	public void renderEntityArray(Entity[][] array, int xleft, int xright, int ybottom, int ytop){
 
-		
+		glPushMatrix();
 		for(int j = ybottom; j<ytop; j++){
+			glPushMatrix();
 			for(int i = xleft; i<xright; i++){
 				Entity ent = array[i][j];
 
 				if(ent != null){
-					if(ent.getWidth()>1 || ent.getHeight()>1){
-						float x = (float) ent.getHeight()/2.0f;
-						float y = (float) ent.getWidth()/2.0f;
-						renderModel(ent, x, y);
-						glTranslatef((float) -1*ent.getWidth()/2.0f + 1.0f,(float) -1*ent.getHeight()/2.0f,0.0f);
-					}
-					else{
-						float x = 0.5f;
-						float y = 0.5f;
-						renderModel(ent, x, y);
-						glTranslatef(0.5f,-0.5f,0.0f);
-					}
-					
-
+					float x = 1 * ((float) ent.getHeight())/2.0f;
+					float y = -1 * ((float) ent.getWidth())/2.0f;
+					renderModel(ent, x, y);
+					glTranslatef((float) -1*ent.getWidth()/2.0f + 1.0f,(float) ent.getHeight()/2.0f,0.0f);
 				}else{
 					glTranslatef(1.0f,0.0f,0.0f);
 				}
 
 				
 			}
-			glTranslatef(((float)-1*((xright-xleft))), -1.0f, 0.0f);
+			
+			glPopMatrix();
+
+			glTranslatef(0.0f,-1.0f,0.0f);
 		}
 		
-		glTranslatef(0.0f, (float)ytop-(float)ybottom, 0.0f);
+		glPopMatrix();
 	}
 
 	public void renderModel(Entity ent, float x, float y){

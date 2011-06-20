@@ -43,12 +43,12 @@ public class GameStarter {
 	public void gameLoop(){
 		while(!Display.isCloseRequested()){
 			try {
-				Thread.sleep(17);
+				Thread.sleep(15);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 //			System.out.println("ik leef nog steeds");
-			render.renderLevel(lev, 0, 14, 0, 7);
+			render.renderLevel(lev, 0, 20, 0, 7);
 			getKeys();
 			Display.update();
 		}
@@ -56,7 +56,7 @@ public class GameStarter {
 	}
 	
 	private void getKeys(){
-		if(Keyboard.next()){
+		while(Keyboard.next()){
 			clickcount++;
 			System.out.println("klik " + clickcount);
 		}
