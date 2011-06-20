@@ -43,7 +43,7 @@ public class GameStarter {
 	public void gameLoop(){
 		while(!Display.isCloseRequested()){
 			try {
-				Thread.sleep(15);
+				Thread.sleep(0);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

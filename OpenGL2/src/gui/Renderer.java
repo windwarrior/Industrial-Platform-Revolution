@@ -41,7 +41,7 @@ public class Renderer {
 
 			Display.setDisplayMode(new DisplayMode(800,450));
 
-			Display.setVSyncEnabled(true);
+			//Display.setVSyncEnabled(true);
 			Display.create();
 		} catch (LWJGLException e) {
 			System.err.println("Could not create window");
