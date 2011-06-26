@@ -77,13 +77,15 @@ public class Renderer {
 
 
 	}
-	public void renderLevel(Level lev, int xleft, int xright, int ybottom, int ytop){
+	public void renderLevel(Level lev, int xleft, int xright, int ybottom, int ytop, float xOff, float yOff){
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	
 		glMatrixMode(GL_MODELVIEW); 
 		glLoadIdentity();
-
+		
+		//First we transform to our default position
 		glTranslatef(((float) -1*((xright-xleft)/2.0f)),((float)(ytop-ybottom))/2.0f,-20.0f);
-
+		//Then we move the offset
+		glTranslatef(xOff,yOff,0.0f);
 
 //		glRotatef(90.0f,0.0f,1.0f,0.0f);
 

@@ -16,6 +16,13 @@ public class GameStarter {
 	private int clickcount = 0;
 	private Renderer render;
 	private Level lev;
+	private int i;
+	private long oldTime = System.currentTimeMillis();
+	private long newTime;
+	private long timeDiff;
+	
+	private int horMove = 0;
+	private int vertMove = 0;
 	/**
 	 * Makes a new GameStarter object
 	 */
@@ -34,6 +41,7 @@ public class GameStarter {
 		render.init();
 		LevelLoader l = new LevelLoader();
 		lev = l.loadLevel("");
+		game = new Game(lev);
 		gameLoop();
 	}
 	
@@ -43,13 +51,15 @@ public class GameStarter {
 	public void gameLoop(){
 		while(!Display.isCloseRequested()){
 			try {
-				Thread.sleep(0);
+				Thread.sleep(10);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-//			System.out.println("ik leef nog steeds");
-			render.renderLevel(lev, 0, 20, 0, 7);
+			timeDiff = oldTime-newTime > 0 ? oldTime-newTime : 1;
+			oldTime = newTime;
 			getKeys();
+			game.updateGame(horMove, vertMove, timeDiff);
+			render.renderLevel(lev, i > 0 ? i: 0,i+15 < lev.getBackground().length ? i + 15 : lev.getBackground().length  - 1 , 0, 7, 0.0f,0.0f);
 			Display.update();
 		}
 		Display.destroy();
@@ -59,6 +69,13 @@ public class GameStarter {
 		while(Keyboard.next()){
 			clickcount++;
 			System.out.println("klik " + clickcount);
+			if(Keyboard.getEventKey() == Keyboard.KEY_RIGHT){
+				System.out.println("rechts");
+				horMove = 1;
+			}
+			else if(Keyboard.getEventKey() == Keyboard.KEY_LEFT){
+				horMove = -1;
+			}
 		}
 	}
 	

@@ -6,3 +6,6 @@ BG_TILE BG_TILE.obj png BG_TILE_TEX.png false true t 2 2
 
 # Ondergrond -o-
 FOREGROUND_TILE FOREGROUND_TILE3.obj png FOREGROUND_TILE_TEX2.png false false ë
+
+# TrapOndergrond -r-
+FOREGROUND_TRAP FOREGROUND_TRAP.obj png BG_TILE_BG.png false false r

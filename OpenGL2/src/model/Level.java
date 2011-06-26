@@ -9,8 +9,13 @@ public class Level {
 	private Entity[][] frontProps;
 	private Entity[][] backProps;
 	
+	private int leftBorder;
+	private int bottomBorder;
+	
+	private static final int viewWidth = 15;
+	private static final int viewHeight = 7;
 
-
+	
 	public Level(String levelName, String levelDescription, Entity[][] background, Entity[][] foreground,	Entity[][] backProps, Entity[][] frontProps) {
 		this.levelName = levelName;
 		this.levelDescription = levelDescription;
@@ -20,6 +25,8 @@ public class Level {
 		this.frontProps = frontProps;
 		
 	}
+	
+
 
 
 	public Entity[][] getBackground() {
